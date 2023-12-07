@@ -1,6 +1,4 @@
-package org.example.model;
-
-import com.google.gson.Gson;
+package org.ulpgc.dacd.model;
 
 import java.time.Instant;
 
@@ -68,10 +66,17 @@ public class Weather {
     }
 
     public String buildJson() {
-        return "\"Weather[System_ts = " + ts.toString() + ", dateTime = " + predictionTime.toString()
-                + ", Temperature = " + temperature + ", Rain = " + rain + ", Humidity = " + humidity
-                + ", Clouds = " + clouds + ", windSpeed = " + windSpeed + ", Latitude = " + location.getLatitude()
-                + ", Longitude = " + location.getLongitude() + "]";
+        return "{" +
+                "\"System_ts\": " + "\"" + ts.toString() + "\"," +
+                "\"dateTime\": " + "\"" + predictionTime.toString() + "\"," +
+                "\"temperature\": " + temperature + "," +
+                "\"Rain\": " + rain  + "," +
+                "\"Humidity\": " + humidity + "," +
+                "\"Clouds\": " + clouds + "," +
+                "\"windSpeed\": " + windSpeed + "," +
+                "\"Latitude\": " + location.getLatitude() + "," +
+                "\"Longitude\": " + location.getLongitude() +
+                "}";
     }
 
 

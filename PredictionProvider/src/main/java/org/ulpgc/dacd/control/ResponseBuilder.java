@@ -1,6 +1,6 @@
-package org.example.control;
+package org.ulpgc.dacd.control;
 
-import org.example.model.Location;
+import org.ulpgc.dacd.model.Location;
 
 import java.io.*;
 import java.net.HttpURLConnection;

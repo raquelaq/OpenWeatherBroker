@@ -1,13 +1,14 @@
-package org.example.control;
+package org.ulpgc.dacd.control;
 
-import org.example.model.Location;
-import org.example.model.Weather;
+import org.ulpgc.dacd.model.Location;
+import org.ulpgc.dacd.model.Weather;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import java.time.format.DateTimeFormatter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;

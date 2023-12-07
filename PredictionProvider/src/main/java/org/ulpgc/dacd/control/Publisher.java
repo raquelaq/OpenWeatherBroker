@@ -1,7 +1,7 @@
-package org.example.control;
+package org.ulpgc.dacd.control;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.example.model.Weather;
+import org.ulpgc.dacd.model.Weather;
 
 import javax.jms.*;
 

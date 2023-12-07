@@ -1,4 +1,4 @@
-package org.example.model;
+package org.ulpgc.dacd.model;
 
 public class Location {
     private final String name;

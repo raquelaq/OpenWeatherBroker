@@ -1,12 +1,13 @@
-package org.example.control;
+package org.ulpgc.dacd.control;
 
 import com.google.gson.Gson;
-import org.example.model.Location;
-import org.example.model.Weather;
+import org.ulpgc.dacd.model.Location;
+import org.ulpgc.dacd.model.Weather;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 
 public class WeatherStore {
     private final OpenWeatherMapProvider openWeatherMapProvider;
@@ -37,8 +38,6 @@ public class WeatherStore {
 
                     // Convertir WeatherEvent a JSON
                     String jsonWeatherEvent = convertToJson(weatherEvent);
-
-                    // Enviar el JSON al bróker o realizar otras operaciones necesarias
                 }
             }
             System.out.println("Weather data has been processed");

@@ -1,8 +1,11 @@
-package org.example.control;
+package org.ulpgc.dacd.control;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Subscriber implements Runnable {
     @Override
@@ -33,10 +36,12 @@ public class Subscriber implements Runnable {
     }
 
     private void subscribe(MessageConsumer consumer) throws JMSException {
+        FileAdministrator fileAdministrator = new FileAdministrator();
         consumer.setMessageListener(message -> {
             if (message instanceof TextMessage textMessage) {
                 try {
                     System.out.println("Received message: " + textMessage.getText());
+                    fileAdministrator.write(new PathProvider().provide(), textMessage.getText() + "\n");
                 } catch (JMSException e) {
                     throw new RuntimeException(e);
                 }
@@ -45,8 +50,9 @@ public class Subscriber implements Runnable {
     }
 
     public static void main(String[] args) {
-        Subscriber subscriber = new Subscriber();
-        Thread thread = new Thread(subscriber);
+        Subscriber consumer = new Subscriber();
+        Thread thread = new Thread(consumer);
         thread.start();
     }
 }
+

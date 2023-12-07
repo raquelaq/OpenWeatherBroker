@@ -1,4 +1,4 @@
-package org.example.control;
+package org.ulpgc.dacd.control;
 
 import java.sql.SQLException;
 import java.util.TimerTask;
