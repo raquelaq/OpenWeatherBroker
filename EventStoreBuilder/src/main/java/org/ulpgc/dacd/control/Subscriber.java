@@ -3,9 +3,6 @@ package org.ulpgc.dacd.control;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class Subscriber implements Runnable {
     @Override
@@ -53,12 +50,6 @@ public class Subscriber implements Runnable {
         } else {
             System.out.println("Error: No se pudo obtener el directorio.");
         }
-    }
-
-    public static void main(String[] args) {
-        Subscriber consumer = new Subscriber();
-        Thread thread = new Thread(consumer);
-        thread.start();
     }
 }
 

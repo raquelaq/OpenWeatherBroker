@@ -55,9 +55,4 @@ public class Publisher implements Runnable {
         connection.close();
     }
 
-    public static void main(String[] args) {
-        Publisher publisher = new Publisher();
-        Thread thread = new Thread(publisher);
-        thread.start();
-    }
 }

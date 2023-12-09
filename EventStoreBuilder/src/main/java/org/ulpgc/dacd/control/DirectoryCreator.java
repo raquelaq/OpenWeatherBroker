@@ -1,7 +1,6 @@
 package org.ulpgc.dacd.control;
 
 import java.io.File;
-import java.io.IOException;
 
 public class DirectoryCreator {
     private String directoryPath;

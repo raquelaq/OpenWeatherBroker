@@ -36,7 +36,6 @@ public class WeatherStore {
                             location
                     );
 
-                    // Convertir WeatherEvent a JSON
                     String jsonWeatherEvent = convertToJson(weatherEvent);
                 }
             }
