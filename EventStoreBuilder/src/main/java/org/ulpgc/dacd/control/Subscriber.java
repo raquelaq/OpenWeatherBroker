@@ -37,16 +37,22 @@ public class Subscriber implements Runnable {
 
     private void subscribe(MessageConsumer consumer) throws JMSException {
         FileAdministrator fileAdministrator = new FileAdministrator();
-        consumer.setMessageListener(message -> {
-            if (message instanceof TextMessage textMessage) {
-                try {
-                    System.out.println("Received message: " + textMessage.getText());
-                    fileAdministrator.write(new PathProvider().provide(), textMessage.getText() + "\n");
-                } catch (JMSException e) {
-                    throw new RuntimeException(e);
+
+        String directoryPath = new PathProvider().provide();
+        if (directoryPath != null) {
+            consumer.setMessageListener(message -> {
+                if (message instanceof TextMessage textMessage) {
+                    try {
+                        System.out.println("Received message: " + textMessage.getText());
+                        fileAdministrator.write(directoryPath, textMessage.getText() + "\n");
+                    } catch (JMSException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            System.out.println("Error: No se pudo obtener el directorio.");
+        }
     }
 
     public static void main(String[] args) {
