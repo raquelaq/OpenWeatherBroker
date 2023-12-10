@@ -21,3 +21,7 @@ I worked specifically with coordinates of the Canary Island, using one set of co
 I created a topic named **prediction.Weather** in ActiveMQ for storing the messages in the Broker.
 
 The EventStoreBuilder module aims to systematically and temporally store the consumed events from the broker in an specific directory created by us.
+
+## Structure
+The code is structured into two main modules: PredictionProvider and EventStoreBuilder, each encompassing their respective classes, packages, poms and functionalities.
+
