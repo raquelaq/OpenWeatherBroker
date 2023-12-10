@@ -64,6 +64,8 @@ It manages and writes weather events in an event storage system
 - **Path Provider**: it provides the directory path where the weather events will be stored.
 - **SubscriberWriter**: it implements the ```Runnable``` class and is responsible for subscribing to weather events and writing them in a file.
 
+To check the functioning of the program, you must run first the EventStoreBuilder main, and then the PredictionProvider main.
+
 
 
 
