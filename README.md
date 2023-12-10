@@ -83,4 +83,5 @@ In my code, you can tell some of the SOLID principles:
 
 ## Class Diagram
 Here you have a class diagram of my code:
+![diagrama](https://github.com/raquelaq/OpenWeatherBroker/assets/117348659/abf33ab8-9206-4327-ae2d-2df8ffc89bc7)
 
