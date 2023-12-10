@@ -4,9 +4,7 @@ import java.io.File;
 
 public class DirectoryCreator {
     private String directoryPath;
-
     public String createDirectory() {
-
         String baseDirectory = "eventstore/prediction.Weather";
         String subdirectory1 = "OpenWeatherMap";
 

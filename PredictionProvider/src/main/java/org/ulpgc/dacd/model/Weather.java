@@ -9,7 +9,7 @@ public class Weather {
     private Instant ts;
     @Expose
     private Instant predictionTime;
-    private String ss;  // Mirar donde debo usarlo y añadirlo o no a los objetos tipo Weather
+    private String ss;
     private double temperature;
     private double rain;
     private double humidity;
@@ -28,7 +28,6 @@ public class Weather {
         this.windSpeed = windSpeed;
         this.location = location;
     }
-
 
     public Instant getTs() {
         return ts;
@@ -59,9 +58,6 @@ public class Weather {
         return windSpeed;
     }
 
-    public Location getLocation() {
-        return location;
-    }
 
     @Override
     public String toString() {

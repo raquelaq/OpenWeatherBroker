@@ -4,7 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileAdministrator {
-
     public void write(String path, String content) {
         try {
             FileWriter writer = new FileWriter(path, true);

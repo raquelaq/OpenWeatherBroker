@@ -10,18 +10,17 @@ import java.util.List;
 import java.util.Map;
 
 
-public class WeatherStore {
+public class WeatherManager {
     private final OpenWeatherMapProvider openWeatherMapProvider;
 
-    public WeatherStore() {
+    public WeatherManager() {
         this.openWeatherMapProvider = new OpenWeatherMapProvider();
     }
 
-    public void storeWeatherData() {
+    public void processAndStoreWeatherData() {
         Map<String, Location> locationMap = openWeatherMapProvider.createMap();
         try {
             for (Map.Entry<String, Location> entry : locationMap.entrySet()) {
-                String tablename = entry.getKey();
                 Location location = entry.getValue();
                 List<Weather> weatherList = openWeatherMapProvider.buildWeather(location);
                 for (Weather weather : weatherList) {
@@ -36,8 +35,7 @@ public class WeatherStore {
                             weather.getWindSpeed(),
                             location
                     );
-
-                    String jsonWeatherEvent = convertToJson(weatherEvent);
+                    convertToJson(weatherEvent);
                 }
             }
             System.out.println("Weather data has been processed");
@@ -61,8 +59,8 @@ public class WeatherStore {
         return weatherList;
     }
 
-    private String convertToJson(Weather weatherEvent) {
+    private void convertToJson(Weather weatherEvent) {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-        return gson.toJson(weatherEvent);
+        gson.toJson(weatherEvent);
     }
 }

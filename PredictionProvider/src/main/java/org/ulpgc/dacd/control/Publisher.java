@@ -35,10 +35,10 @@ public class Publisher implements Runnable {
     }
 
     private void sendWeatherEvents(Session session, MessageProducer producer) throws JMSException {
-        WeatherStore weatherStore = new WeatherStore();
+        WeatherManager weatherManager = new WeatherManager();
 
         try {
-            for (Weather weather : weatherStore.getWeatherData()) {
+            for (Weather weather : weatherManager.getWeatherData()) {
                 String jsonWeatherEvent = weather.buildJson();
                 TextMessage message = session.createTextMessage(jsonWeatherEvent);
                 producer.send(message);
@@ -54,5 +54,4 @@ public class Publisher implements Runnable {
         session.close();
         connection.close();
     }
-
 }

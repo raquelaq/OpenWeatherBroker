@@ -4,7 +4,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
-public class Subscriber implements Runnable {
+public class SubscriberWriter implements Runnable {
     @Override
     public void run() {
         try {
@@ -20,7 +20,7 @@ public class Subscriber implements Runnable {
         Session session = createSession(connection);
         Destination destination = session.createTopic("prediction.Weather");
         MessageConsumer consumer = session.createConsumer(destination);
-        subscribe(consumer);
+        subscribeAndWrite(consumer);
     }
 
     private Connection connect(String brokerUrl) throws JMSException {
@@ -32,7 +32,7 @@ public class Subscriber implements Runnable {
         return connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
-    private void subscribe(MessageConsumer consumer) throws JMSException {
+    private void subscribeAndWrite(MessageConsumer consumer) throws JMSException {
         FileAdministrator fileAdministrator = new FileAdministrator();
 
         String directoryPath = new PathProvider().provide();

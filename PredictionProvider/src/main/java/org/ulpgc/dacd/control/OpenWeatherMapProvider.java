@@ -22,7 +22,6 @@ public class OpenWeatherMapProvider {
     public List<Weather> buildWeather(Location coordinates) throws IOException {
         Instant instant = Instant.now();
         List<Weather> weatherList = new ArrayList<>();
-
         JsonObject json = generate(coordinates);
         JsonArray jsonArray = (JsonArray) json.get("list");
 

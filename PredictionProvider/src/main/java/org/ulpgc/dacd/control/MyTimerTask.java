@@ -11,14 +11,13 @@ public class MyTimerTask extends TimerTask {
             throw new RuntimeException(e);
         }
     }
-
     private void executeTask() throws SQLException {
         System.out.println("Executing task...");
-        WeatherStore weatherStore = new WeatherStore();
+        WeatherManager weatherManager = new WeatherManager();
         Publisher publisher = new Publisher();
         Thread thread = new Thread(publisher);
         try {
-            weatherStore.storeWeatherData();
+            weatherManager.processAndStoreWeatherData();
             thread.start();
         } catch (Exception e) {
             e.printStackTrace();
