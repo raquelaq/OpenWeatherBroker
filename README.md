@@ -66,6 +66,15 @@ It manages and writes weather events in an event storage system
 
 To check the functioning of the program, you must run first the EventStoreBuilder main, and then the PredictionProvider main.
 
+## Resources
+#### Enviroment
+The proyect has been created in IntelliJ IDEA, and uses Java 17 as the source and target compilation version (**maven.compiler.source** and **maven.compiler.target**)
+#### Documentation Tools
+Here are some webpages I used for the development of my code:
+- https://lineadecodigo.com/java/crear-un-fichero-en-java/
+- https://decodigo.com/java-crear-directorio-o-carpeta
+- https://activemq.apache.org/getting-started
+- https://examples.javacodegeeks.com/java-development/enterprise-java/jms/apache-activemq-hello-world-example/
 
 
 
