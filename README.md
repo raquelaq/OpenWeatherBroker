@@ -81,4 +81,6 @@ In my code, you can tell some of the SOLID principles:
 - **Open/Closed Princple**: classes like Weather can be extended (e.g., by adding new attributes) without modifying their existing code. The WeatherDataExtractor class can also be extended to handle new types of weather data.
 - **Singleton Pattern**: The connection to ActiveMQ in SubscriberWriter is established using ActiveMQConnectionFactory, which is typically implemented as a Singleton to ensure a single instance of the connection factory.
 
+## Class Diagram
+Here you have a class diagram of my code:
 
