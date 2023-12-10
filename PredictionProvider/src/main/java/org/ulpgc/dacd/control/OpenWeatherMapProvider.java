@@ -15,7 +15,7 @@ import java.time.Instant;
 import java.util.*;
 
 public class OpenWeatherMapProvider {
-    private final String API_KEY = "96401e11b3d4fbefb6ff23c1a69fde24";
+    private final String API_KEY = "INSERT YOUR APIKEY HERE";
     private final String QUERY = "https://api.openweathermap.org/data/2.5/forecast?lat=%s&lon=%s&appid=%s&units=metrics";
     WeatherDataExtractor weatherDataExtractor = new WeatherDataExtractor();
 
@@ -66,3 +66,5 @@ public class OpenWeatherMapProvider {
         return map;
     }
 }
+
+
