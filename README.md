@@ -76,5 +76,9 @@ Here are some webpages I used for the development of my code:
 - https://activemq.apache.org/getting-started
 - https://examples.javacodegeeks.com/java-development/enterprise-java/jms/apache-activemq-hello-world-example/
 
+### Design Principles
+In my code, you can tell some of the SOLID principles:
+- **Open/Closed Princple**: classes like Weather can be extended (e.g., by adding new attributes) without modifying their existing code. The WeatherDataExtractor class can also be extended to handle new types of weather data.
+- **Singleton Pattern**: The connection to ActiveMQ in SubscriberWriter is established using ActiveMQConnectionFactory, which is typically implemented as a Singleton to ensure a single instance of the connection factory.
 
 
