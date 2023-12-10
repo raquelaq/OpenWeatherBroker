@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="944f9813-12cc-4e42-b1d6-c3a3f843118f" name="Changes" comment="Seventh Commit: more clean code">
+    <list default="true" id="944f9813-12cc-4e42-b1d6-c3a3f843118f" name="Changes" comment="Eighth commit: last version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapProvider.java" afterDir="false" />
     </list>
@@ -50,6 +50,26 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ralme\IdeaProjects\OpenWeatherNewApp\EventStoreBuilder\src\main\java\org\ulpgc\dacd\control" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.Main" />
+      <module name="PredictionProvider" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ulpgc.dacd.control.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -116,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702239957567</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Eighth commit: last version">
+      <option name="closed" value="true" />
+      <created>1702250899073</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702250899074</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,6 +166,7 @@
     <MESSAGE value="Fifth Commit: fixed the TimerTask, clean-code" />
     <MESSAGE value="Sixth Commit: added 'ss' to weather events, more clean code" />
     <MESSAGE value="Seventh Commit: more clean code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Seventh Commit: more clean code" />
+    <MESSAGE value="Eighth commit: last version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eighth commit: last version" />
   </component>
 </project>
