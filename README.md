@@ -54,5 +54,16 @@ This package comprises a collection of Java classes responsible for executing th
 </p>
 
 ### EventStoreBuilder Module
+It manages and writes weather events in an event storage system
+
+- **Controller**: is responsible for the execution of the application.
+- **Main**: houses the principal method ```main()``` that initiates the application. It creates an instance of ```Controller``` and calls the method ```execute()``` to start running the code.
+- **Date Provider**: gives the actual date.
+- **Directory Creator**: it creates the directory where we will store weather events.
+- **File Administrator**: it manages the content writing in the file
+- **Path Provider**: it provides the directory path where the weather events will be stored.
+- **SubscriberWriter**: it implements the ```Runnable``` class and is responsible for subscribing to weather events and writing them in a file.
+
+
 
 
