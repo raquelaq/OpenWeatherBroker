@@ -1,6 +1,7 @@
 package org.ulpgc.dacd.control;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.ulpgc.dacd.model.Location;
 import org.ulpgc.dacd.model.Weather;
 
@@ -26,7 +27,7 @@ public class WeatherStore {
                 for (Weather weather : weatherList) {
                     Weather weatherEvent = new Weather(
                             weather.getTs(),
-                            "prediction-provider",
+                            "OpenWeatherMap",
                             weather.getPredictionTime(),
                             weather.getTemperature(),
                             weather.getRain(),
@@ -61,7 +62,7 @@ public class WeatherStore {
     }
 
     private String convertToJson(Weather weatherEvent) {
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         return gson.toJson(weatherEvent);
     }
 }

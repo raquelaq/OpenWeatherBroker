@@ -48,7 +48,7 @@ public class Subscriber implements Runnable {
                 }
             });
         } else {
-            System.out.println("Error: No se pudo obtener el directorio.");
+            System.out.println("Error: Could not obtain the directoy.");
         }
     }
 }

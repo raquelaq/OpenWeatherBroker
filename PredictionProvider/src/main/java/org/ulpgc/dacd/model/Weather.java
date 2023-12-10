@@ -1,9 +1,13 @@
 package org.ulpgc.dacd.model;
 
+import com.google.gson.annotations.Expose;
+
 import java.time.Instant;
 
 public class Weather {
+    @Expose
     private Instant ts;
+    @Expose
     private Instant predictionTime;
     private String ss;  // Mirar donde debo usarlo y añadirlo o no a los objetos tipo Weather
     private double temperature;
@@ -69,6 +73,7 @@ public class Weather {
         return "{" +
                 "\"System_ts\": " + "\"" + ts.toString() + "\"," +
                 "\"dateTime\": " + "\"" + predictionTime.toString() + "\"," +
+                "\"ss\": " + "\"" + ss + "\"," +
                 "\"temperature\": " + temperature + "," +
                 "\"Rain\": " + rain  + "," +
                 "\"Humidity\": " + humidity + "," +
@@ -78,6 +83,4 @@ public class Weather {
                 "\"Longitude\": " + location.getLongitude() +
                 "}";
     }
-
-
 }

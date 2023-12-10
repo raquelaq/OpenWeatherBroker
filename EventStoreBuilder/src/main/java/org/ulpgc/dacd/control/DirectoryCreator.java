@@ -8,7 +8,7 @@ public class DirectoryCreator {
     public String createDirectory() {
 
         String baseDirectory = "eventstore/prediction.Weather";
-        String subdirectory1 = "ss";
+        String subdirectory1 = "OpenWeatherMap";
 
         File baseDirectoryFile = new File(baseDirectory);
 
@@ -31,11 +31,11 @@ public class DirectoryCreator {
 
         if (subdirectory2File.mkdirs()) {
             directoryPath = subdirectory2File.getAbsolutePath();
-            System.out.println("Estructura de directorio creada exitosamente:");
+            System.out.print("Directory path successfully created: ");
             System.out.println(baseDirectory + "/" + subdirectory1);
             return directoryPath;
         } else {
-            System.out.println("No se pudo crear la estructura de directorio.");
+            System.out.println("Could not create directoy path.");
             return null;
         }
     }

@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="944f9813-12cc-4e42-b1d6-c3a3f843118f" name="Changes" comment="Fourth Commit: fixed the errors in the path, removed deleted classes, got to write all the messages in the file">
-      <change afterPath="$PROJECT_DIR$/EventStoreBuilder/src/main/java/org/ulpgc/dacd/control/Controller.java" afterDir="false" />
+    <list default="true" id="944f9813-12cc-4e42-b1d6-c3a3f843118f" name="Changes" comment="Fifth Commit: fixed the TimerTask, clean-code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/EventStoreBuilder/src/main/java/org/ulpgc/dacd/control/DirectoryCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/EventStoreBuilder/src/main/java/org/ulpgc/dacd/control/DirectoryCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventStoreBuilder/src/main/java/org/ulpgc/dacd/control/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/EventStoreBuilder/src/main/java/org/ulpgc/dacd/control/Subscriber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/MyTimerTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/MyTimerTask.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/Publisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/Publisher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/WeatherStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/WeatherStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/model/Weather.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/model/Weather.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702133145114</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fifth Commit: fixed the TimerTask, clean-code">
+      <option name="closed" value="true" />
+      <created>1702141787252</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702141787252</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -118,6 +122,7 @@
     <MESSAGE value="Second Commit: modified Publisher and Subscriber" />
     <MESSAGE value="Third Commit: file creation, wrote in the file" />
     <MESSAGE value="Fourth Commit: fixed the errors in the path, removed deleted classes, got to write all the messages in the file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fourth Commit: fixed the errors in the path, removed deleted classes, got to write all the messages in the file" />
+    <MESSAGE value="Fifth Commit: fixed the TimerTask, clean-code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fifth Commit: fixed the TimerTask, clean-code" />
   </component>
 </project>
