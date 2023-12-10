@@ -48,4 +48,11 @@ This package comprises a collection of Java classes responsible for executing th
 - **WeatherDataExtractor**: it extracts specific data from a JsonObject related to meteorological conditions.
 - **WeatherManager**: it coordinates the retrieval and processing of weather data using ```OpenWeatherMapProvider```.
 
+⚠️**You must insert your "API KEY" into the variable ```API_KEY``` to do the API call**⚠️
+<p align="center">
+<img width="354" alt="image" src="https://github.com/raquelaq/OpenWeatherBroker/assets/117348659/121881fb-0d1c-4869-9097-fd5dcd02a457">
+</p>
+
+### EventStoreBuilder Module
+
 
