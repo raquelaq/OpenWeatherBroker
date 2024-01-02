@@ -1,40 +1,28 @@
 package org.ulpgc.dacd.control;
 
 import java.io.File;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 public class DirectoryCreator {
-    private String directoryPath;
-    public String createDirectory() {
+    public String createDirectory(Instant date) {
+        LocalDate localDate = date.atZone(ZoneId.systemDefault()).toLocalDate();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        String formattedDate = formatter.format(localDate);
+
         String baseDirectory = "eventstore/prediction.Weather";
-        String subdirectory1 = "OpenWeatherMap";
+        String subdirectory = "OpenWeatherMap/";
 
-        File baseDirectoryFile = new File(baseDirectory);
-
-        if (!baseDirectoryFile.exists()) {
-            if (baseDirectoryFile.mkdirs()) {
-                System.out.println("Base directory created: " + baseDirectory);
-            } else {
-                System.out.println("Couldn't create base directory.");
-                return null;
-            }
-        }
-
-        File subdirectory2File = new File(baseDirectoryFile, subdirectory1);
-
-        if (subdirectory2File.exists()) {
-            System.out.println("The directory already exists: " + subdirectory2File.getAbsolutePath());
-            directoryPath = subdirectory2File.getAbsolutePath();
-            return directoryPath;
-        }
-
-        if (subdirectory2File.mkdirs()) {
-            directoryPath = subdirectory2File.getAbsolutePath();
-            System.out.print("Directory path successfully created: ");
-            System.out.println(baseDirectory + "/" + subdirectory1);
-            return directoryPath;
+        File directory = new File(baseDirectory, subdirectory);
+        if (!directory.exists()) {
+            boolean isCreated = directory.mkdirs();
+            System.out.println(isCreated ? "Directory created" : "Failed to create directory");
+            return isCreated ? directory.getAbsolutePath() : null;
         } else {
-            System.out.println("Could not create directoy path.");
-            return null;
+            System.out.println("Directory already exists");
+            return directory.getAbsolutePath();
         }
     }
 }

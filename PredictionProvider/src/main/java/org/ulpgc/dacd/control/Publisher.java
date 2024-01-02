@@ -6,6 +6,11 @@ import org.ulpgc.dacd.model.Weather;
 import javax.jms.*;
 
 public class Publisher implements Runnable {
+    private final String apiKey;
+
+    public Publisher(String apiKey) {
+        this.apiKey = apiKey;
+    }
     @Override
     public void run() {
         try {
@@ -21,7 +26,7 @@ public class Publisher implements Runnable {
         Session session = createSession(connection);
         Destination destination = session.createTopic("prediction.Weather");
         MessageProducer producer = session.createProducer(destination);
-        sendWeatherEvents(session, producer);
+        sendWeatherEvents(session, producer, apiKey);
         disconnect(producer, session, connection);
     }
 
@@ -34,8 +39,8 @@ public class Publisher implements Runnable {
         return connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
-    private void sendWeatherEvents(Session session, MessageProducer producer) throws JMSException {
-        WeatherManager weatherManager = new WeatherManager();
+    private void sendWeatherEvents(Session session, MessageProducer producer, String apiKey) throws JMSException {
+        WeatherManager weatherManager = new WeatherManager(apiKey);
 
         try {
             for (Weather weather : weatherManager.getWeatherData()) {

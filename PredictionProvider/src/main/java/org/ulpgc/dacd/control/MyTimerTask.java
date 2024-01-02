@@ -4,6 +4,10 @@ import java.sql.SQLException;
 import java.util.TimerTask;
 
 public class MyTimerTask extends TimerTask {
+    private final String apiKey;
+    public MyTimerTask(String apiKey) {
+        this.apiKey = apiKey;
+    }
     public void run() {
         try {
             executeTask();
@@ -13,8 +17,8 @@ public class MyTimerTask extends TimerTask {
     }
     private void executeTask() throws SQLException {
         System.out.println("Executing task...");
-        WeatherManager weatherManager = new WeatherManager();
-        Publisher publisher = new Publisher();
+        WeatherManager weatherManager = new WeatherManager(apiKey);
+        Publisher publisher = new Publisher(apiKey);
         Thread thread = new Thread(publisher);
         try {
             weatherManager.processAndStoreWeatherData();

@@ -13,8 +13,9 @@ import java.util.Map;
 public class WeatherManager {
     private final OpenWeatherMapProvider openWeatherMapProvider;
 
-    public WeatherManager() {
-        this.openWeatherMapProvider = new OpenWeatherMapProvider();
+    public WeatherManager(String apiKey) {
+
+        this.openWeatherMapProvider = new OpenWeatherMapProvider(apiKey);
     }
 
     public void processAndStoreWeatherData() {

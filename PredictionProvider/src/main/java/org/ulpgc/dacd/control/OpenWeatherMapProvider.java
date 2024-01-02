@@ -15,8 +15,12 @@ import java.time.Instant;
 import java.util.*;
 
 public class OpenWeatherMapProvider {
-    private final String API_KEY = "INSERT HERE YOUR APIKEY";
-    private final String QUERY = "https://api.openweathermap.org/data/2.5/forecast?lat=%s&lon=%s&appid=%s&units=metrics";
+    private final String API_KEY;
+    private final String QUERY;
+    public OpenWeatherMapProvider(String apiKey) {
+        this.API_KEY = apiKey;
+        this.QUERY = "https://api.openweathermap.org/data/2.5/forecast?lat=%s&lon=%s&appid=%s&units=metrics";
+    }
     WeatherDataExtractor weatherDataExtractor = new WeatherDataExtractor();
 
     public List<Weather> buildWeather(Location coordinates) throws IOException {

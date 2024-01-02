@@ -2,7 +2,13 @@ package org.ulpgc.dacd.control;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import javax.jms.*;
+import java.time.Instant;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 public class SubscriberWriter implements Runnable {
     @Override
@@ -33,23 +39,38 @@ public class SubscriberWriter implements Runnable {
     }
 
     private void subscribeAndWrite(MessageConsumer consumer) throws JMSException {
-        FileAdministrator fileAdministrator = new FileAdministrator();
+        consumer.setMessageListener(message -> {
+            if (message instanceof TextMessage textMessage) {
+                try {
+                    String json = textMessage.getText();
+                    System.out.println("Received message: " + json);
 
-        String directoryPath = new PathProvider().provide();
-        if (directoryPath != null) {
-            consumer.setMessageListener(message -> {
-                if (message instanceof TextMessage textMessage) {
+                    JsonObject eventJson = JsonParser.parseString(json).getAsJsonObject();
                     try {
-                        System.out.println("Received message: " + textMessage.getText());
-                        fileAdministrator.write(directoryPath, textMessage.getText() + "\n");
-                    } catch (JMSException e) {
-                        throw new RuntimeException(e);
+                        Instant systemTs = Instant.parse(eventJson.get("System_ts").getAsString());
+                        System.out.println("Extracted date: " + systemTs);
+
+                        DateTimeFormatter fileNameFormatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+                        String formattedTimestamp = fileNameFormatter.format(systemTs.atZone(ZoneId.systemDefault()));
+
+                        String directoryPath = new DirectoryCreator().createDirectory(systemTs);
+                        if (directoryPath != null) {
+                            String filePath = directoryPath + "/" + formattedTimestamp + ".events";
+                            new FileAdministrator().write(filePath, json + "\n");
+                        } else {
+                            System.out.println("Error: Could not obtain the directory.");
+                        }
+                    } catch (Exception e) {
+                        System.err.println("Error parsing date: " + e.getMessage());
+                        e.printStackTrace();
                     }
+
+                } catch (Exception e) {
+                    System.err.println("Error processing message: " + e.getMessage());
+                    e.printStackTrace();
                 }
-            });
-        } else {
-            System.out.println("Error: Could not obtain the directoy.");
-        }
+            }
+        });
     }
 }
 
