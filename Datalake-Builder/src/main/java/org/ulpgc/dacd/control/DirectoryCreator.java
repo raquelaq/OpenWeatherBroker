@@ -12,7 +12,7 @@ public class DirectoryCreator {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         String formattedDate = formatter.format(localDate);
 
-        String baseDirectory = "eventstore/prediction.Weather";
+        String baseDirectory = "datalake/prediction.Weather";
         String subdirectory = "OpenWeatherMap/";
 
         File directory = new File(baseDirectory, subdirectory);
