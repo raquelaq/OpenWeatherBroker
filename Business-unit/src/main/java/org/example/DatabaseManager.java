@@ -3,7 +3,7 @@ package org.example;
 import java.sql.*;
 
 public class DatabaseManager {
-    private static final String path = "src\\main\\resources";
+    private static final String path = "Business-unit\\src\\main\\resources";
 
     public static String getPath() {
         return path;

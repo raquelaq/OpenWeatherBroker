@@ -25,7 +25,7 @@ public class SensorPublisher implements Runnable{
         Session session = createSession(connection);
         Destination destination = session.createTopic("prediction.Weather");
         MessageProducer producer = session.createProducer(destination);
-        sendFlightEvents(session, producer, apiKey);
+        //sendFlightEvents(session, producer, apiKey);
         disconnect(producer, session, connection);
     }
 
@@ -38,7 +38,7 @@ public class SensorPublisher implements Runnable{
         return connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
-    private void sendWeatherEvents(Session session, MessageProducer producer, String apiKey) throws JMSException {
+    /*private void sendWeatherEvents(Session session, MessageProducer producer, String apiKey) throws JMSException {
         WeatherManager weatherManager = new WeatherManager(apiKey);
 
         try {
@@ -51,7 +51,7 @@ public class SensorPublisher implements Runnable{
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     private void disconnect(MessageProducer producer, Session session, Connection connection) throws JMSException {
         producer.close();

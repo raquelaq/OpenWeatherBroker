@@ -22,8 +22,9 @@ public class WeatherManager {
         Map<String, Location> locationMap = openWeatherMapProvider.createMap();
         try {
             for (Map.Entry<String, Location> entry : locationMap.entrySet()) {
+                String islandName = entry.getKey();
                 Location location = entry.getValue();
-                List<Weather> weatherList = openWeatherMapProvider.buildWeather(location);
+                List<Weather> weatherList = openWeatherMapProvider.buildWeather(location, islandName);
                 for (Weather weather : weatherList) {
                     Weather weatherEvent = new Weather(
                             weather.getTs(),
@@ -34,7 +35,8 @@ public class WeatherManager {
                             weather.getHumidity(),
                             weather.getClouds(),
                             weather.getWindSpeed(),
-                            location
+                            location,
+                            islandName
                     );
                     convertToJson(weatherEvent);
                 }
@@ -50,8 +52,9 @@ public class WeatherManager {
         Map<String, Location> locationMap = openWeatherMapProvider.createMap();
         try {
             for (Map.Entry<String, Location> entry : locationMap.entrySet()) {
+                String islandName = entry.getKey();
                 Location location = entry.getValue();
-                List<Weather> currentWeatherList = openWeatherMapProvider.buildWeather(location);
+                List<Weather> currentWeatherList = openWeatherMapProvider.buildWeather(location, islandName);
                 weatherList.addAll(currentWeatherList);
             }
         } catch (Exception e) {

@@ -23,7 +23,7 @@ public class OpenWeatherMapProvider {
     }
     WeatherDataExtractor weatherDataExtractor = new WeatherDataExtractor();
 
-    public List<Weather> buildWeather(Location coordinates) throws IOException {
+    public List<Weather> buildWeather(Location coordinates, String islandName) throws IOException {
         Instant instant = Instant.now();
         List<Weather> weatherList = new ArrayList<>();
         JsonObject json = generate(coordinates);
@@ -33,7 +33,7 @@ public class OpenWeatherMapProvider {
             JsonObject jsonObject = (JsonObject) jsonElement;
             String datetime = jsonObject.get("dt_txt").toString().substring(12, 20);
             if (datetime.equals("12:00:00")) {
-                buildWeatherList(instant, jsonObject, coordinates, weatherList);
+                buildWeatherList(instant, jsonObject, coordinates, weatherList, islandName);
             }
         }
         return weatherList;
@@ -46,7 +46,7 @@ public class OpenWeatherMapProvider {
         return (JsonObject) parser.parse(response);
     }
 
-    private void buildWeatherList(Instant instant, JsonObject jsonObject, Location location, List<Weather> weatherList) {
+    private void buildWeatherList(Instant instant, JsonObject jsonObject, Location location, List<Weather> weatherList, String islandName) {
         double precipitation = weatherDataExtractor.getPrecipitation(jsonObject);
         double temperature = weatherDataExtractor.getTemperature(jsonObject);
         double humidity = weatherDataExtractor.getHumidity(jsonObject);
@@ -54,7 +54,7 @@ public class OpenWeatherMapProvider {
         double windSpeed = weatherDataExtractor.getWindSpeed(jsonObject);
         Instant forecastTime = weatherDataExtractor.getForecastTime(jsonObject);
         String ss = "OpenWeatherMap";
-        weatherList.add(new Weather(instant, ss, forecastTime, temperature, precipitation, humidity, clouds, windSpeed, location));
+        weatherList.add(new Weather(instant, ss, forecastTime, temperature, precipitation, humidity, clouds, windSpeed, location, islandName));
     }
 
     public Map<String, Location> createMap() {

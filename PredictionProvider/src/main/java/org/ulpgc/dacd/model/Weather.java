@@ -9,6 +9,7 @@ public class Weather {
     private Instant ts;
     @Expose
     private Instant predictionTime;
+    private String islandName;
     private String ss;
     private double temperature;
     private double rain;
@@ -17,7 +18,7 @@ public class Weather {
     private double windSpeed;
     private Location location;
 
-    public Weather(Instant ts, String ss, Instant predictionTime, double temperature, double rain, double humidity, double clouds, double windSpeed, Location location) {
+    public Weather(Instant ts, String ss, Instant predictionTime, double temperature, double rain, double humidity, double clouds, double windSpeed, Location location, String islandName) {
         this.ts = ts;
         this.ss = ss;
         this.predictionTime = predictionTime;
@@ -27,6 +28,7 @@ public class Weather {
         this.clouds = clouds;
         this.windSpeed = windSpeed;
         this.location = location;
+        this.islandName = islandName;
     }
 
     public Instant getTs() {
@@ -76,7 +78,8 @@ public class Weather {
                 "\"Clouds\": " + clouds + "," +
                 "\"windSpeed\": " + windSpeed + "," +
                 "\"Latitude\": " + location.getLatitude() + "," +
-                "\"Longitude\": " + location.getLongitude() +
+                "\"Longitude\": " + location.getLongitude() + "," +
+                "\"IslandName\": \"" + islandName + "\"" +
                 "}";
     }
 }

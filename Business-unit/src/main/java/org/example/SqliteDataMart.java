@@ -9,8 +9,9 @@ import java.sql.Statement;
 
 public class SqliteDataMart {
 
-    public void createTable() {
-        String sql = "CREATE TABLE IF NOT EXISTS weather_data (" +
+    public void createTable(String islandName) {
+        String tableName = islandName.replaceAll("\\s+","_");
+        String sql = "CREATE TABLE IF NOT EXISTS " + tableName + "(" +
                 "System_ts TEXT, " +
                 "DateTime TEXT, " +
                 "Source TEXT, " +
@@ -32,7 +33,10 @@ public class SqliteDataMart {
     }
 
     public void insertWeatherData(JsonObject weatherData) {
-        String sql = "INSERT INTO weather_data (System_ts, DateTime, Source, Temperature, Rain, " +
+        String islandName = weatherData.get("IslandName").getAsString().replaceAll("\\s+", "_");
+        createTable(islandName);
+
+        String sql = "INSERT INTO " + islandName + " (System_ts, DateTime, Source, Temperature, Rain, " +
                 "Humidity, Clouds, WindSpeed, Latitude, Longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DatabaseManager.getConnection("database.db");
