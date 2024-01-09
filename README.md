@@ -1,4 +1,4 @@
-<h1 align="center"> OpenWeatherMap Broker </h1>
+<h1 align="center"> OpenWeatherMap and SkyScanner Sensor </h1>
 
 <p align="left">
 
