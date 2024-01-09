@@ -17,6 +17,8 @@ Lo que queda por hacer, sería:
 - **Módulo Business-unit**: (cambiar el nombre). Una vez estén los eventos Json de vuelo creados y modificados según mis necesidades, quedaría combinar los datos de estos eventos y los eventos de predicciones meteoróligas para tener un datamart en condiciones, y así poder explotarlos para mi unidad de negocio.
 - **Interfaz**: una vez pueda explotar el modelo de negocio, haría una interfaz (todavía no se de qué tipo) en la que el usuario pueda reservar su vuelo y, luego, darle la predicción meteorológica de la isla en la que haya elegido pasar su estancia.
 
+Además, quedan corregir pequeños detalles de código como utilizar los argumentos del main, limpieza, etc.
+
 
 
 
