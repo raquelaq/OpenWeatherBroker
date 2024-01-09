@@ -6,7 +6,7 @@
    <img src="https://img.shields.io/badge/Released-January%202024-yellow">
    </p>
 
-## General Information
+## Información General
 Para mi proyecto, he decidido hacer la planificación de viajes inteligente obteniendo datos meterológicos de la API de OpenWeather y datos de vuelo de la API de SkyScanner. Daría a los usuarios la posibilidad de escoger su vuelo a la isla canaria que prefiera, y luego darles predicciones meterológicas de cómo estará el tiempo durante su estancia en las islas. 
 
 El proyecto está por acabar.
