@@ -11,7 +11,7 @@
     <modules>
         <module>PredictionProvider</module>
         <module>Datalake-Builder</module>
-        <module>Sensor</module>
+        <module>FlightInsightSensor</module>
         <module>Business-unit</module>
     </modules>
 

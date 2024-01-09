@@ -67,6 +67,7 @@ public class Weather {
                 predictionTime, temperature, rain, humidity, clouds, windSpeed);
     }
 
+
     public String buildJson() {
         return "{" +
                 "\"System_ts\": " + "\"" + ts.toString() + "\"," +

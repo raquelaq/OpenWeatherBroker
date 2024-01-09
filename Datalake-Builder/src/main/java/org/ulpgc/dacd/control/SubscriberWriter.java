@@ -11,6 +11,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class SubscriberWriter implements Runnable {
+    private static final String DURABLE_SUBSCRIBER_ID = "admin";
     @Override
     public void run() {
         try {
@@ -22,11 +23,13 @@ public class SubscriberWriter implements Runnable {
 
     private void start() throws JMSException {
         Connection connection = connect("tcp://localhost:61616");
+        connection.setClientID(DURABLE_SUBSCRIBER_ID);
         connection.start();
         Session session = createSession(connection);
         Destination destination = session.createTopic("prediction.Weather");
-        MessageConsumer consumer = session.createConsumer(destination);
-        subscribeAndWrite(consumer);
+
+        TopicSubscriber durableSubscriber = session.createDurableSubscriber((Topic) destination, DURABLE_SUBSCRIBER_ID);
+        subscribeAndWrite(durableSubscriber);
     }
 
     private Connection connect(String brokerUrl) throws JMSException {

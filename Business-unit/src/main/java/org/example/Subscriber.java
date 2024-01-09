@@ -42,6 +42,7 @@ public class Subscriber implements Runnable {
                     String json = textMessage.getText();
                     JsonObject eventJson = JsonParser.parseString(json).getAsJsonObject();
                     SqliteDataMart dataMart = new SqliteDataMart();
+                    dataMart.updateWeatherData(eventJson);
                     dataMart.insertWeatherData(eventJson);
                 } catch (Exception e) {
                     System.err.println("Error processing message: " + e.getMessage());
