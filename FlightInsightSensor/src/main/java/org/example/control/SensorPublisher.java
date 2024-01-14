@@ -1,6 +1,9 @@
 package org.example.control;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.example.model.Flight;
+import org.example.model.ResponseBody;
+
 import javax.jms.*;
 
 public class SensorPublisher implements Runnable{
@@ -23,9 +26,9 @@ public class SensorPublisher implements Runnable{
         Connection connection = connect("tcp://localhost:61616");
         connection.start();
         Session session = createSession(connection);
-        Destination destination = session.createTopic("prediction.Weather");
+        Destination destination = session.createTopic("flightData.Flight");
         MessageProducer producer = session.createProducer(destination);
-        //sendFlightEvents(session, producer, apiKey);
+        sendFlightEvents(session, producer, apiKey);
         disconnect(producer, session, connection);
     }
 
@@ -38,20 +41,20 @@ public class SensorPublisher implements Runnable{
         return connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
-    /*private void sendWeatherEvents(Session session, MessageProducer producer, String apiKey) throws JMSException {
-        WeatherManager weatherManager = new WeatherManager(apiKey);
+    private void sendFlightEvents(Session session, MessageProducer producer, String apiKey) throws JMSException {
+        FlightManager flightManager = new FlightManager(apiKey);
 
         try {
-            for (Weather weather : weatherManager.getWeatherData()) {
-                String jsonWeatherEvent = weather.buildJson();
-                TextMessage message = session.createTextMessage(jsonWeatherEvent);
+            for (Flight flight : flightManager.getFlightData()) {
+                String jsonFlightEvent = flight.buildJson();
+                TextMessage message = session.createTextMessage(jsonFlightEvent);
                 producer.send(message);
-                System.out.println("Sent weather event: " + jsonWeatherEvent);
+                System.out.println("Sent flight event: " + jsonFlightEvent);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }*/
+    }
 
     private void disconnect(MessageProducer producer, Session session, Connection connection) throws JMSException {
         producer.close();

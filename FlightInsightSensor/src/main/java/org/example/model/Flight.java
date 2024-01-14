@@ -1,24 +1,61 @@
 package org.example.model;
 
-import java.util.Date;
+import org.example.model.Date;
+
+import java.time.LocalTime;
 
 public class Flight {
-    private String origin;
-    private String destination;
+    private final Date departureDate;
+    private final LocalTime departureTime;
+    private final String origin;
+    private final String destination;
+    private final Integer adults;
+    private final Cabin cabin;
+
+
+    public Flight(Date departureDate, LocalTime departureTime, String origin, String destination, Integer adults, Cabin cabin) {
+        this.departureDate = departureDate;
+        this.departureTime = departureTime;
+        this.origin = origin;
+        this.destination = destination;
+        this.adults = adults;
+        this.cabin = cabin;
+    }
+
+
+    public Date getDepartureDate() {
+        return departureDate;
+    }
+
+    public LocalTime getDepartureTime() {
+        return departureTime;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public Integer getAdults() {
+        return adults;
+    }
+
+    public Cabin getCabin() {
+        return cabin;
+    }
+
+    public String buildJson() {
+        return "Flight{" +
+                ", departureDate=" + departureDate +
+                ", departureTime=" + departureTime +
+                ", origin='" + origin + '\'' +
+                ", destination='" + destination + '\'' +
+                ", adults=" + adults +
+                ", cabinClass=" + cabin +
+                '}';
+    }
 
 }
-
-/*
-departureDateTime y arrivalDateTime: Fechas y horas de salida y llegada, respectivamente. Estos datos son fundamentales para la planificación del tiempo de viaje y la coordinación con las predicciones meteorológicas.
-
-durationInMinutes: La duración del vuelo en minutos. Es útil para los usuarios al evaluar la duración del viaje.
-
-stopCount: La cantidad de paradas en el itinerario. Esto puede afectar la conveniencia y el tiempo total de viaje.
-
-price: El precio del itinerario, que generalmente es un factor decisivo para los viajeros. Asegúrate de incluir la cantidad y la moneda.
-
-deepLink: Un enlace profundo proporcionado para realizar la reserva directamente. Es valioso para la conversión en el proceso de reserva.
-
-legIds y segmentIds: Estos identificadores pueden ser útiles para relacionar diferentes partes de un viaje y ofrecer recomendaciones personalizadas.
-
- */
