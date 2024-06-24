@@ -12,10 +12,11 @@ public class Hotel {
     private String ss;
     private Location location;
 
-    public Hotel(String name, String ID, Location location) {
+    public Hotel(String name, String ID, Location location, String ss) {
         this.name = name;
         this.ID = ID;
         this.location = location;
+        this.ss = ss;
     }
 
     public Hotel(String id, String name, double rating, String ss) {
@@ -55,13 +56,14 @@ public class Hotel {
         this.averagePrice = averagePrice;
     }
 
-    public String buildJson() {
+    public String buildJson(Instant ts) {
         return "{" +
                 "\"name\": \"" + name + "\"," +
                 "\"rating\": " + rating + "," +
                 "\"latitude\": " + location.getLatitude() + "," +
                 "\"longitude\": " + location.getLongitude() + "," +
-                "\"ss\": \"" + ss + "\"" +
+                "\"ss\": \"" + ss + "\"" + "," +
+                "\"System_ts\": \"" + ts.toString() + "\"" +
                 "}";
     }
 }

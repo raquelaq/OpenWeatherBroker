@@ -7,14 +7,21 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class DirectoryCreator {
-    public String createDirectory(Instant date) {
-        LocalDate localDate = date.atZone(ZoneId.systemDefault()).toLocalDate();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-        String formattedDate = formatter.format(localDate);
-
-        String baseDirectory = "datalake/prediction.Weather";
+    public String createWeatherDirectory(Instant date) {
+        String baseDirectory = "datalake/prediction.weather"; // Asegúrate de que los nombres de los directorios son correctos
         String subdirectory = "OpenWeatherMap/";
 
+        return createSpecificDirectory(baseDirectory, subdirectory);
+    }
+
+    public String createHotelDirectory(Instant date) {
+        String baseDirectory = "datalake/sensor.Hotel";
+        String subdirectory = "TripAdvisor/";
+
+        return createSpecificDirectory(baseDirectory, subdirectory);
+    }
+
+    private String createSpecificDirectory(String baseDirectory, String subdirectory) {
         File directory = new File(baseDirectory, subdirectory);
         if (!directory.exists()) {
             boolean isCreated = directory.mkdirs();

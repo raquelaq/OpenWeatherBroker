@@ -4,6 +4,7 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import org.example.model.Hotel;
 
 import javax.jms.*;
+import java.time.Instant;
 
 public class HotelDataPublisher implements Runnable{
     @Override
@@ -43,7 +44,8 @@ public class HotelDataPublisher implements Runnable{
         HotelManager hotelManager = new HotelManager();
         try {
             for (Hotel hotel : hotelManager.getHotelData()) {
-                String jsonHotelEvent = hotel.buildJson();
+                Instant now = Instant.now();
+                String jsonHotelEvent = hotel.buildJson(now);
                 TextMessage message = session.createTextMessage(jsonHotelEvent);
                 producer.send(message);
                 System.out.println("Sent hotel event: " + jsonHotelEvent);

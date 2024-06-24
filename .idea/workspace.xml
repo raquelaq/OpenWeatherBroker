@@ -4,31 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="944f9813-12cc-4e42-b1d6-c3a3f843118f" name="Changes" comment="New Commit: fixed FlightInsightSensor">
-      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelDataExtractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelDataPublisher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelRecommender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/MyTimerTask.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/ResponseBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/TripAdvisorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/XoteloProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/model/Hotel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/model/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="944f9813-12cc-4e42-b1d6-c3a3f843118f" name="Changes" comment="New Commit: Sensor Finished">
+      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/TripAdvisorProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/FlightDataExtractor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/FlightManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/Prueba.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/SensorPublisher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/SkyScannerProvider.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/model/Flight.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datalake-Builder/src/main/java/org/ulpgc/dacd/control/DirectoryCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake-Builder/src/main/java/org/ulpgc/dacd/control/DirectoryCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Datalake-Builder/src/main/java/org/ulpgc/dacd/control/SubscriberWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake-Builder/src/main/java/org/ulpgc/dacd/control/SubscriberWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelDataPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelDataPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelRecommender.java" beforeDir="false" afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelRecommender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/model/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/model/Hotel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +83,7 @@
       <recent name="C:\Users\ralme\IdeaProjects\OpenWeatherNewApp\EventStoreBuilder\src\main\java\org\ulpgc\dacd\control" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main (4)">
     <configuration name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.Main" />
       <module name="PredictionProvider" />
@@ -166,8 +149,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.org.example.control.Main" />
         <item itemvalue="Application.Main (4)" />
+        <item itemvalue="Application.org.example.control.Main" />
         <item itemvalue="Application.org.example.control.Main" />
         <item itemvalue="Application.Main" />
       </list>
@@ -198,7 +181,7 @@
       <workItem from="1706288301356" duration="44000" />
       <workItem from="1718567739335" duration="3310000" />
       <workItem from="1719083294988" duration="22113000" />
-      <workItem from="1719166660722" duration="42498000" />
+      <workItem from="1719166660722" duration="48349000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit: modules creation. Messager Sender and Consumer creation">
       <option name="closed" value="true" />
@@ -320,7 +303,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705263314137</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="New Commit: Sensor Finished">
+      <option name="closed" value="true" />
+      <created>1719262372837</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1719262372837</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +344,8 @@
     <MESSAGE value="New Commit: Created sensor module, updated EventStoreBuilder's name to Datalake-Builder, created Bussiness-unit module" />
     <MESSAGE value="New Commit: Created each Island's table, added them into the database, fixed problems" />
     <MESSAGE value="New Commit: fixed FlightInsightSensor" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Commit: fixed FlightInsightSensor" />
+    <MESSAGE value="New Commit: Sensor Finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Commit: Sensor Finished" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

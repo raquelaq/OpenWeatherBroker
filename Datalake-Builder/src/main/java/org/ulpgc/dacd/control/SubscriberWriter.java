@@ -26,10 +26,14 @@ public class SubscriberWriter implements Runnable {
         connection.setClientID(DURABLE_SUBSCRIBER_ID);
         connection.start();
         Session session = createSession(connection);
-        Destination destination = session.createTopic("prediction.Weather");
 
-        TopicSubscriber durableSubscriber = session.createDurableSubscriber((Topic) destination, DURABLE_SUBSCRIBER_ID);
-        subscribeAndWrite(durableSubscriber);
+        Destination weatherDestination = session.createTopic("prediction.weather"); // Asegúrate de usar el nombre correcto del topic
+        TopicSubscriber weatherDurableSubscriber = session.createDurableSubscriber((Topic) weatherDestination, "weatherSubscriber");
+        subscribeAndWrite(weatherDurableSubscriber, "weather");
+
+        Destination hotelDestination = session.createTopic("sensor.Hotel");
+        TopicSubscriber hotelDurableSubscriber = session.createDurableSubscriber((Topic) hotelDestination, "hotelSubscriber");
+        subscribeAndWrite(hotelDurableSubscriber, "hotel");
     }
 
     private Connection connect(String brokerUrl) throws JMSException {
@@ -41,33 +45,30 @@ public class SubscriberWriter implements Runnable {
         return connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
-    private void subscribeAndWrite(MessageConsumer consumer) throws JMSException {
+    private void subscribeAndWrite(MessageConsumer consumer, String directoryType) throws JMSException {
         consumer.setMessageListener(message -> {
             if (message instanceof TextMessage textMessage) {
                 try {
                     String json = textMessage.getText();
                     System.out.println("Received message: " + json);
-
                     JsonObject eventJson = JsonParser.parseString(json).getAsJsonObject();
-                    try {
-                        Instant systemTs = Instant.parse(eventJson.get("System_ts").getAsString());
-                        System.out.println("Extracted date: " + systemTs);
+                    Instant systemTs = Instant.parse(eventJson.get("System_ts").getAsString());
 
-                        DateTimeFormatter fileNameFormatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-                        String formattedTimestamp = fileNameFormatter.format(systemTs.atZone(ZoneId.systemDefault()));
-
-                        String directoryPath = new DirectoryCreator().createDirectory(systemTs);
-                        if (directoryPath != null) {
-                            String filePath = directoryPath + "/" + formattedTimestamp + ".events";
-                            new FileAdministrator().write(filePath, json + "\n");
-                        } else {
-                            System.out.println("Error: Could not obtain the directory.");
-                        }
-                    } catch (Exception e) {
-                        System.err.println("Error parsing date: " + e.getMessage());
-                        e.printStackTrace();
+                    String directoryPath;
+                    if (directoryType.equals("weather")) {
+                        directoryPath = new DirectoryCreator().createWeatherDirectory(systemTs);
+                    } else {
+                        directoryPath = new DirectoryCreator().createHotelDirectory(systemTs);
                     }
 
+                    if (directoryPath != null) {
+                        DateTimeFormatter fileNameFormatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+                        String formattedTimestamp = fileNameFormatter.format(systemTs.atZone(ZoneId.systemDefault()));
+                        String filePath = directoryPath + "/" + formattedTimestamp + ".events";
+                        new FileAdministrator().write(filePath, json + "\n");
+                    } else {
+                        System.out.println("Error: Could not obtain the directory.");
+                    }
                 } catch (Exception e) {
                     System.err.println("Error processing message: " + e.getMessage());
                     e.printStackTrace();
@@ -75,5 +76,6 @@ public class SubscriberWriter implements Runnable {
             }
         });
     }
+
 }
 
