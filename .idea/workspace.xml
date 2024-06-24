@@ -4,19 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="944f9813-12cc-4e42-b1d6-c3a3f843118f" name="Changes" comment="New Commit: Created each Island's table, added them into the database, fixed problems">
-      <change afterPath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/FlightDataExtractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/FlightManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/Prueba.java" afterDir="false" />
+    <list default="true" id="944f9813-12cc-4e42-b1d6-c3a3f843118f" name="Changes" comment="New Commit: fixed FlightInsightSensor">
+      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelDataExtractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelDataPublisher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelRecommender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/MyTimerTask.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/ResponseBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/TripAdvisorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/XoteloProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/model/Hotel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/model/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/FlightInsightSensor/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/SensorPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/SensorPublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/SkyScannerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/SkyScannerProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/model/Flight.java" beforeDir="false" afterPath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/model/Flight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/FlightDataExtractor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/FlightManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/Prueba.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/SensorPublisher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/control/SkyScannerProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FlightInsightSensor/src/main/java/org/example/model/Flight.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/PredictionProvider/src/main/java/org/ulpgc/dacd/control/OpenWeatherMapProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +40,7 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
+        <option value="Record" />
         <option value="Class" />
       </list>
     </option>
@@ -52,10 +65,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.FoursquareProvider.executor": "Run",
+    "Application.HotelDataConsumer.executor": "Run",
     "Application.Main (2).executor": "Run",
     "Application.Main (4).executor": "Run",
     "Application.Main.executor": "Run",
+    "Application.OpenWeatherMapProvider.executor": "Run",
     "Application.ResponseBuilder.executor": "Run",
+    "Application.SkyScannerProvider.executor": "Run",
+    "Application.TripAdvisorProvider.executor": "Run",
     "Application.org.example.Main.executor": "Run",
     "Application.org.example.control.Main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -73,7 +91,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -82,7 +100,7 @@
       <recent name="C:\Users\ralme\IdeaProjects\OpenWeatherNewApp\EventStoreBuilder\src\main\java\org\ulpgc\dacd\control" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.org.example.control.Main">
+  <component name="RunManager">
     <configuration name="Main (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ulpgc.dacd.control.Main" />
       <module name="PredictionProvider" />
@@ -116,7 +134,6 @@
     </configuration>
     <configuration name="org.example.control.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
-      <module name="FlightInsightSensor (1)" />
       <option name="PROGRAM_PARAMETERS" value="sh428739766321522266746152871799" />
       <extension name="coverage">
         <pattern>
@@ -131,7 +148,7 @@
     <configuration name="org.example.control.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.control.Main" />
       <module name="FlightInsightSensor (1)" />
-      <option name="PROGRAM_PARAMETERS" value="sh428739766321522266746152871799" />
+      <option name="PROGRAM_PARAMETERS" value="8aa374f4e28e4664bf268f850f767535" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.ulpgc.dacd.control.*" />
@@ -150,9 +167,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.org.example.control.Main" />
+        <item itemvalue="Application.Main (4)" />
         <item itemvalue="Application.org.example.control.Main" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.Main (4)" />
       </list>
     </recent_temporary>
   </component>
@@ -177,7 +194,11 @@
       <workItem from="1704581935161" duration="723000" />
       <workItem from="1704584438368" duration="15011000" />
       <workItem from="1704824337374" duration="1186000" />
-      <workItem from="1705091108425" duration="22053000" />
+      <workItem from="1705091108425" duration="23686000" />
+      <workItem from="1706288301356" duration="44000" />
+      <workItem from="1718567739335" duration="3310000" />
+      <workItem from="1719083294988" duration="22113000" />
+      <workItem from="1719166660722" duration="42498000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit: modules creation. Messager Sender and Consumer creation">
       <option name="closed" value="true" />
@@ -291,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704824363114</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="New Commit: fixed FlightInsightSensor">
+      <option name="closed" value="true" />
+      <created>1705263314137</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1705263314137</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,7 +352,8 @@
     <MESSAGE value="New Commit: bug fixes" />
     <MESSAGE value="New Commit: Created sensor module, updated EventStoreBuilder's name to Datalake-Builder, created Bussiness-unit module" />
     <MESSAGE value="New Commit: Created each Island's table, added them into the database, fixed problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Commit: Created each Island's table, added them into the database, fixed problems" />
+    <MESSAGE value="New Commit: fixed FlightInsightSensor" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Commit: fixed FlightInsightSensor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

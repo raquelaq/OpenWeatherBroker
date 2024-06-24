@@ -9,6 +9,8 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/FlightInsightSensor/pom.xml" />
+        <option value="$PROJECT_DIR$/FoursquareSensor/pom.xml" />
         <option value="$PROJECT_DIR$/Sensor_bueno/pom.xml" />
       </set>
     </option>

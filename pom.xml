@@ -11,8 +11,8 @@
     <modules>
         <module>PredictionProvider</module>
         <module>Datalake-Builder</module>
-        <module>FlightInsightSensor</module>
         <module>Business-unit</module>
+        <module>TripAdvisorSensor</module>
     </modules>
 
     <properties>

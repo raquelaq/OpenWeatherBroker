@@ -1,18 +1,11 @@
 package org.example.control;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.example.model.Flight;
-import org.example.model.ResponseBody;
+import org.example.model.Hotel;
 
 import javax.jms.*;
 
-public class SensorPublisher implements Runnable{
-    private final String apiKey;
-
-    public SensorPublisher(String apiKey) {
-        this.apiKey = apiKey;
-    }
-
+public class HotelDataPublisher implements Runnable{
     @Override
     public void run() {
         try {
@@ -23,13 +16,18 @@ public class SensorPublisher implements Runnable{
     }
 
     private void start() throws JMSException {
+        System.out.println("Connecting to broker...");
         Connection connection = connect("tcp://localhost:61616");
         connection.start();
+        System.out.println("Connection started, creating session...");
         Session session = createSession(connection);
-        Destination destination = session.createTopic("flightData.Flight");
+        Destination destination = session.createTopic("sensor.Hotel");
         MessageProducer producer = session.createProducer(destination);
-        sendFlightEvents(session, producer, apiKey);
+        System.out.println("Session and producer created, sending events...");
+        sendHotelEvents(session, producer);
+        System.out.println("Events sent, disconnecting...");
         disconnect(producer, session, connection);
+        System.out.println("Disconnected.");
     }
 
     private Connection connect(String brokerUrl) throws JMSException {
@@ -41,15 +39,14 @@ public class SensorPublisher implements Runnable{
         return connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
-    private void sendFlightEvents(Session session, MessageProducer producer, String apiKey) throws JMSException {
-        FlightManager flightManager = new FlightManager(apiKey);
-
+    private void sendHotelEvents(Session session, MessageProducer producer) throws JMSException {
+        HotelManager hotelManager = new HotelManager();
         try {
-            for (Flight flight : flightManager.getFlightData()) {
-                String jsonFlightEvent = flight.buildJson();
-                TextMessage message = session.createTextMessage(jsonFlightEvent);
+            for (Hotel hotel : hotelManager.getHotelData()) {
+                String jsonHotelEvent = hotel.buildJson();
+                TextMessage message = session.createTextMessage(jsonHotelEvent);
                 producer.send(message);
-                System.out.println("Sent flight event: " + jsonFlightEvent);
+                System.out.println("Sent hotel event: " + jsonHotelEvent);
             }
         } catch (Exception e) {
             e.printStackTrace();

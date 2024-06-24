@@ -68,5 +68,3 @@ public class OpenWeatherMapProvider {
         return map;
     }
 }
-
-
