@@ -6,6 +6,10 @@
    <img src="https://img.shields.io/badge/Released-June%202024-yellow">
    </p>
 
+<p align="center">
+<img width="622" alt="image" src="https://github.com/raquelaq/OpenWeatherBroker/assets/117348659/63ea0928-0e53-4d31-837f-d8124d234cf6">
+</p>
+
 ## General Information
 This project was developed by Raquel Almeida Quesada for the "Desarrollo de Aplicaciones para la Ciencia de Datos" (DACD) course, a second-year subject in the Data Science and Engineering Degree at the University of Las Palmas de Gran Canaria (ULPGC), School of Computer Engineering (EII).
 
