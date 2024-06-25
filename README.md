@@ -7,7 +7,7 @@
    </p>
 
 ## General Information
-This project was developed by Raquel Almeida Quesada for the "Development of Applications for Data Science" (DACD) course, a second-year subject in the Data Science and Engineering Degree at the University of Las Palmas de Gran Canaria (ULPGC), School of Computer Engineering (EII).
+This project was developed by Raquel Almeida Quesada for the "Desarrollo de Aplicaciones para la Ciencia de Datos" (DACD) course, a second-year subject in the Data Science and Engineering Degree at the University of Las Palmas de Gran Canaria (ULPGC), School of Computer Engineering (EII).
 
 ## The Project
 For my project, I have utilized Xotelo's API, which fetches hotel data from TripAdvisor. This API accepts a `HotelKey` along with check-in and check-out dates, returning data about available hotels during those dates. I have selected a number of hotels for each island, among which the API will check availability. The modules include:
