@@ -9,13 +9,33 @@
 ## General Information
 This project was developed by Raquel Almeida Quesada for the "Desarrollo de Aplicaciones para la Ciencia de Datos" (DACD) course, a second-year subject in the Data Science and Engineering Degree at the University of Las Palmas de Gran Canaria (ULPGC), School of Computer Engineering (EII).
 
-## The Project
-For my project, I have utilized Xotelo's API, which fetches hotel data from TripAdvisor. This API accepts a `HotelKey` along with check-in and check-out dates, returning data about available hotels during those dates. I have selected a number of hotels for each island, among which the API will check availability. The modules include:
+## Project Overview
+The core objective of this project is to harness real-time data from two significant APIs—OpenWeatherMap and Xotelo (for TripAdvisor data)—to provide dynamic and predictive insights into hotel availability and weather conditions for various islands. The project is structured into several key modules, each responsible for distinct aspects of data handling and user interaction:
 
-- **TripAdvisorSensor Module**: The functionality of this module is to obtain data from Xotelo's API. A new topic is created in ActiveMQ where JSON events generated will be sent.
-- **PredictionProvider Module**: A module from a previous practice, which retrieves JSON events from the OpenWeatherMap API. A topic is created to which JSON events will be sent.
-- **DataLakeBuilder Module**: A consumer that retrieves events posted to the broker in both topics and creates a datalake with a specific directory for each type of event.
-- **Business-unit Module**: A module that consumes data from the topics and generates an interface providing the user with weather data for the island they are interested in, in addition to recommending hotels for accommodation.
+### Modules Description
+
+- **TripAdvisorSensor Module:**
+  - **Purpose**: This module interfaces directly with the Xotelo API to fetch real-time data on hotel availability based on specific keys and date ranges.
+  - **Functionality**: It generates JSON events that encapsulate hotel data and then publishes these events to a designated ActiveMQ topic.
+
+- **PredictionProvider Module:**
+  - **Purpose**: To collect meteorological data from the OpenWeatherMap API, offering forecasts that assist in planning and decision-making for travelers.
+  - **Functionality**: Similar to the TripAdvisorSensor, this module processes weather data into JSON format and dispatches it to another ActiveMQ topic created for weather events.
+
+- **DataLakeBuilder Module:**
+  - **Purpose**: Acts as a data aggregator that consolidates incoming data streams from both hotel and weather topics in ActiveMQ.
+  - **Functionality**: It subscribes to both topics, extracts events, and organizes them into a structured DataLake, ensuring data is stored in an accessible and logical format. This module is pivotal for data analysis and long-term storage, facilitating efficient data retrieval for analytical processes.
+
+- **Business-unit Module:**
+  - **Purpose**: This is the front-end module that interacts directly with end-users, providing actionable insights and data visualizations.
+  - **Functionality**: It fetches processed data from the DataLake, presenting weather forecasts and hotel options on a user-friendly interface. For islands like La Graciosa with no hotels, the system smartly notifies users of no availability, enhancing user experience by setting realistic expectations.
+
+## Environment and Technologies
+- **Development Environment**: IntelliJ IDEA
+- **Programming Language**: Java 17, ensuring compatibility and performance.
+- **Key APIs**: OpenWeatherMap for weather forecasts; Xotelo for TripAdvisor hotel data.
+- **Message Broker**: ActiveMQ for handling data streams and ensuring that data flows seamlessly between modules.
+
 
 ## Resources
 **Environment**
