@@ -47,6 +47,8 @@ The project was developed in IntelliJ IDEA, utilizing Java 17 as the source and 
 
 ## Class Diagram
 
+<img width="674" alt="image" src="https://github.com/raquelaq/OpenWeatherBroker/assets/117348659/5c6104fd-04c3-47e0-9cd5-18c3ef5e9c80">
+
 
 ### Additional Notes
 Each module is designed to function seamlessly, ensuring that data flows smoothly from APIs to the end-user interface. The system is capable of handling concurrent data streams and updates the user interface in real-time with weather predictions and hotel availability. Error handling is robust, ensuring that any issues with data retrieval or processing are logged and managed appropriately.
