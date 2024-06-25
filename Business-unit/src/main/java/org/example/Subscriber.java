@@ -21,9 +21,14 @@ public class Subscriber implements Runnable {
         Connection connection = connect("tcp://localhost:61616");
         connection.start();
         Session session = createSession(connection);
-        Destination destination = session.createTopic("prediction.Weather");
-        MessageConsumer consumer = session.createConsumer(destination);
-        processMessages(consumer);
+
+        Destination weatherDestination = session.createTopic("prediction.Weather");
+        MessageConsumer weatherConsumer = session.createConsumer(weatherDestination);
+        processWeatherMessages(weatherConsumer);
+
+        Destination hotelDestination = session.createTopic("sensor.Hotel");
+        MessageConsumer hotelConsumer = session.createConsumer(hotelDestination);
+        processHotelMessages(hotelConsumer);
     }
 
     private Connection connect(String brokerUrl) throws JMSException {
@@ -35,7 +40,7 @@ public class Subscriber implements Runnable {
         return connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
     }
 
-    private void processMessages(MessageConsumer consumer) throws JMSException {
+    private void processWeatherMessages(MessageConsumer consumer) throws JMSException {
         consumer.setMessageListener(message -> {
             if (message instanceof TextMessage textMessage) {
                 try {
@@ -44,6 +49,7 @@ public class Subscriber implements Runnable {
                     SqliteDataMart dataMart = new SqliteDataMart();
                     dataMart.updateWeatherData(eventJson);
                     dataMart.insertWeatherData(eventJson);
+                    System.out.println("Weather data processed: " + eventJson);
                 } catch (Exception e) {
                     System.err.println("Error processing message: " + e.getMessage());
                     e.printStackTrace();
@@ -51,5 +57,23 @@ public class Subscriber implements Runnable {
             }
         });
 
+    }
+
+    private void processHotelMessages(MessageConsumer consumer) throws JMSException {
+        consumer.setMessageListener(message -> {
+            if (message instanceof TextMessage textMessage) {
+                try {
+                    String json = textMessage.getText();
+                    JsonObject eventJson = JsonParser.parseString(json).getAsJsonObject();
+                    SqliteDataMart dataMart = new SqliteDataMart();
+                    dataMart.updateHotelData(eventJson);
+                    dataMart.insertHotelData(eventJson);
+                    System.out.println("Hotel data processed: " + eventJson);
+                } catch (Exception e) {
+                    System.err.println("Error processing message: " + e.getMessage());
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

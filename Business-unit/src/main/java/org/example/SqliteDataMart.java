@@ -9,9 +9,10 @@ import java.sql.Statement;
 
 public class SqliteDataMart {
 
-    public void createTable(String islandName) {
+    public void createWeatherTable(String islandName) {
         String tableName = islandName.replaceAll("\\s+","_");
         String sql = "CREATE TABLE IF NOT EXISTS " + tableName + "(" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "System_ts TEXT, " +
                 "DateTime TEXT UNIQUE, " +
                 "Source TEXT, " +
@@ -34,7 +35,7 @@ public class SqliteDataMart {
 
     public void insertWeatherData(JsonObject weatherData) {
         String islandName = weatherData.get("IslandName").getAsString().replaceAll("\\s+", "_");
-        createTable(islandName);
+        createWeatherTable(islandName);
 
         String sql = String.format("INSERT INTO " + islandName + " (System_ts, DateTime, Source, Temperature, Rain, " +
                 "Humidity, Clouds, WindSpeed, Latitude, Longitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -79,6 +80,82 @@ public class SqliteDataMart {
             pstmt.setDouble(7, weatherData.get("Latitude").getAsDouble());
             pstmt.setDouble(8, weatherData.get("Longitude").getAsDouble());
             pstmt.setString(9, weatherData.get("dateTime").getAsString());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void createHotelTable(String islandName) {
+        String tableName = islandName.replaceAll("\\s+","_");
+        System.out.println(tableName);
+
+        String sql = "CREATE TABLE IF NOT EXISTS " + tableName + "(" +
+                "HotelID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "Name TEXT, " +
+                "Rating REAL, " +
+                "Latitude REAL, " +
+                "Longitude REAL, " +
+                "Source TEXT, " +
+                "System_ts TEXT, " +
+                "CheckInDate TEXT, " +
+                "CheckOutDate TEXT," +
+                "HotelKey TEXT UNIQUE" +
+                ");";
+
+        try (Connection conn = DatabaseManager.getConnection("database.db");
+             Statement stmt = conn.createStatement()) {
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void insertHotelData(JsonObject hotelData) {
+        String islandName = hotelData.get("IslandName").getAsString().replaceAll("\\s+", "_") + "_hotels";
+        createHotelTable(islandName);
+
+        String sql = String.format("INSERT INTO " + islandName + " (Name, Rating, Latitude, Longitude, Source, System_ts, CheckInDate, CheckOutDate, HotelKey)" +
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+
+        DatabaseManager databaseManager = new DatabaseManager();
+        try (Connection conn = databaseManager.getConnection("database.db");
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            conn.setAutoCommit(false);
+            pstmt.setString(1, hotelData.get("name").getAsString());
+            pstmt.setDouble(2, hotelData.get("rating").getAsDouble());
+            pstmt.setDouble(3, hotelData.get("latitude").getAsDouble());
+            pstmt.setDouble(4, hotelData.get("longitude").getAsDouble());
+            pstmt.setString(5, hotelData.get("ss").getAsString());
+            pstmt.setString(6, hotelData.get("System_ts").getAsString());
+            pstmt.setString(7, hotelData.get("CheckInDate").getAsString());
+            pstmt.setString(8, hotelData.get("CheckOutDate").getAsString());
+            pstmt.setString(9, hotelData.get("HotelKey").getAsString());
+            pstmt.executeUpdate();
+            conn.commit();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    public void updateHotelData(JsonObject hotelData) {
+        String islandName = hotelData.get("IslandName").getAsString().replaceAll("\\s+", "_") + "_hotels";
+
+        String sql = String.format("UPDATE " + islandName + " SET Name = ?, Rating = ?, Latitude = ?, Longitude = ?, " +
+                "Source = ?, System_ts = ?, CheckInDate = ?, CheckOutDate = ?" +
+                "WHERE HotelKey = ?");
+
+        DatabaseManager databaseManager = new DatabaseManager();
+        try (Connection conn = databaseManager.getConnection("database.db");
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, hotelData.get("name").getAsString());
+            pstmt.setDouble(2, hotelData.get("rating").getAsDouble());
+            pstmt.setDouble(3, hotelData.get("latitude").getAsDouble());
+            pstmt.setDouble(4, hotelData.get("longitude").getAsDouble());
+            pstmt.setString(5, hotelData.get("ss").getAsString());
+            pstmt.setString(6, hotelData.get("System_ts").getAsString());
+            pstmt.setString(7, hotelData.get("CheckOutDate").getAsString());
+            pstmt.setString(8, hotelData.get("CheckInDate").getAsString());
             pstmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());

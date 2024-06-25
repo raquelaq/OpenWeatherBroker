@@ -28,6 +28,8 @@ public class TripAdvisorProvider {
                 JsonArray rates = json.getAsJsonObject("result").getAsJsonArray("rates");
                 //System.out.println("Rates: " + rates);
                 processHotelRates(hotel, rates);
+                hotel.setCheckInDate(checkInDate);
+                hotel.setCheckOutDate(checkOutDate);
                 updatedHotels.add(hotel);
             } else {
                 System.out.println("No rates found for hotel: " + hotel.getID());

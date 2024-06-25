@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="944f9813-12cc-4e42-b1d6-c3a3f843118f" name="Changes" comment="New Commit: Sensor Finished">
-      <change afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/TripAdvisorProvider.java" afterDir="false" />
+    <list default="true" id="944f9813-12cc-4e42-b1d6-c3a3f843118f" name="Changes" comment="New Commit: Datalake-Builder finished">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business-unit/src/main/java/org/example/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/Business-unit/src/main/java/org/example/DatabaseManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business-unit/src/main/java/org/example/SqliteDataMart.java" beforeDir="false" afterPath="$PROJECT_DIR$/Business-unit/src/main/java/org/example/SqliteDataMart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Business-unit/src/main/java/org/example/Subscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/Business-unit/src/main/java/org/example/Subscriber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Datalake-Builder/src/main/java/org/ulpgc/dacd/control/DirectoryCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake-Builder/src/main/java/org/ulpgc/dacd/control/DirectoryCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Datalake-Builder/src/main/java/org/ulpgc/dacd/control/SubscriberWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Datalake-Builder/src/main/java/org/ulpgc/dacd/control/SubscriberWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelDataPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelDataPublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelRecommender.java" beforeDir="false" afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/HotelRecommender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/TripAdvisorProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/control/TripAdvisorProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/model/Hotel.java" beforeDir="false" afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/model/Hotel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/model/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/TripAdvisorSensor/src/main/java/org/example/model/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventstore/prediction.Weather/OpenWeatherMap/20231229.events" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventstore/prediction.Weather/OpenWeatherMap/20231230.events" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,9 +154,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main (4)" />
-        <item itemvalue="Application.org.example.control.Main" />
-        <item itemvalue="Application.org.example.control.Main" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.org.example.control.Main" />
+        <item itemvalue="Application.org.example.control.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -181,7 +185,7 @@
       <workItem from="1706288301356" duration="44000" />
       <workItem from="1718567739335" duration="3310000" />
       <workItem from="1719083294988" duration="22113000" />
-      <workItem from="1719166660722" duration="48349000" />
+      <workItem from="1719166660722" duration="71021000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit: modules creation. Messager Sender and Consumer creation">
       <option name="closed" value="true" />
@@ -311,7 +315,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719262372837</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="New Commit: Datalake-Builder finished">
+      <option name="closed" value="true" />
+      <created>1719270180816</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1719270180816</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,17 +357,7 @@
     <MESSAGE value="New Commit: Created each Island's table, added them into the database, fixed problems" />
     <MESSAGE value="New Commit: fixed FlightInsightSensor" />
     <MESSAGE value="New Commit: Sensor Finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Commit: Sensor Finished" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Business-unit/src/main/java/org/example/Subscriber.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="New Commit: Datalake-Builder finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Commit: Datalake-Builder finished" />
   </component>
 </project>

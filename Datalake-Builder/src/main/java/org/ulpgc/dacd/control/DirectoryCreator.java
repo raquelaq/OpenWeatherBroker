@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 
 public class DirectoryCreator {
     public String createWeatherDirectory(Instant date) {
-        String baseDirectory = "datalake/prediction.weather"; // Asegúrate de que los nombres de los directorios son correctos
+        String baseDirectory = "datalake/prediction.weather";
         String subdirectory = "OpenWeatherMap/";
 
         return createSpecificDirectory(baseDirectory, subdirectory);
