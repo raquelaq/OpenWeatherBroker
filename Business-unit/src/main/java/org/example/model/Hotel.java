@@ -14,6 +14,8 @@ public class Hotel {
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
 
+    private Instant SystemTime;
+
     public Hotel(String name, String ID, Location location, String ss) {
         this.name = name;
         this.ID = ID;
@@ -21,11 +23,12 @@ public class Hotel {
         this.ss = ss;
     }
 
-    public Hotel(String id, String name, double rating, String ss) {
+    public Hotel(String id, String name, double rating, String ss, Instant systemTime) {
         this.ID = id;
         this.name = name;
         this.rating = rating;
         this.ss = ss;
+        this.SystemTime = systemTime;
     }
     public String getID() {
         return ID;
@@ -68,20 +71,8 @@ public class Hotel {
     public void setAveragePrice(double averagePrice) {
         this.averagePrice = averagePrice;
     }
-
-    public String buildJson(Instant ts) {
-        return "{" +
-                "\"name\": \"" + name + "\"," +
-                "\"rating\": \"" + rating + "\"," +
-                "\"latitude\": \"" + location.getLatitude() + "\"," +
-                "\"longitude\": \"" + location.getLongitude() + "\"," +
-                "\"ss\": \"" + ss + "\"," +
-                "\"System_ts\": \"" + ts.toString() + "\"," +
-                "\"IslandName\": \"" + location.getName() + "\"," +
-                "\"CheckInDate\": \"" + checkInDate.toString() + "\","  +
-                "\"CheckOutDate\": \"" + checkOutDate.toString() + "\","  +
-                "\"HotelKey\": \"" + ID + "\"" +
-                "}";
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
 }

@@ -1,4 +1,4 @@
-package org.example;
+package org.example.control;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;

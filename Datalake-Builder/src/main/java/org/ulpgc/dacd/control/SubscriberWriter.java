@@ -27,7 +27,7 @@ public class SubscriberWriter implements Runnable {
         connection.start();
         Session session = createSession(connection);
 
-        Destination weatherDestination = session.createTopic("prediction.weather"); // Asegúrate de usar el nombre correcto del topic
+        Destination weatherDestination = session.createTopic("prediction.weather");
         TopicSubscriber weatherDurableSubscriber = session.createDurableSubscriber((Topic) weatherDestination, "weatherSubscriber");
         subscribeAndWrite(weatherDurableSubscriber, "weather");
 

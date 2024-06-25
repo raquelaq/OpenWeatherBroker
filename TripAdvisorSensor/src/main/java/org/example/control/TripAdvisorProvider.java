@@ -32,7 +32,7 @@ public class TripAdvisorProvider {
                 hotel.setCheckOutDate(checkOutDate);
                 updatedHotels.add(hotel);
             } else {
-                System.out.println("No rates found for hotel: " + hotel.getID());
+                //System.out.println("No rates found for hotel: " + hotel.getID());
             }
         }
         return updatedHotels;
@@ -46,7 +46,7 @@ public class TripAdvisorProvider {
 
     private void processHotelRates(Hotel hotel, JsonArray rates) {
         if (rates.size() == 0) {
-            System.out.println("No rates available for " + hotel.getName());
+            //System.out.println("No rates available for " + hotel.getName());
             return;
         }
 
