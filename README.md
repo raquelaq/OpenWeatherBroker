@@ -6,10 +6,26 @@
    <img src="https://img.shields.io/badge/Released-June%202024-yellow">
    </p>
 
-## Información General
-Para mi proyecto, he usado la api de Xotelo que obtiene datos de hoteles de TripAdvisor. Se le pasa a la API una HotelKey y la fecha de entrada y de salida a dicho hotel, y la API devuelve los hoteles que estará disponibles durante esas fechas. Lo que he hecho ha sido seleccionar un numero de hoteles para cada isla, entre los que la API podrá seleccionar su disponibilidad. Los módulos son:
+## General Information
+This project was developed by Raquel Almeida Quesada for the "Development of Applications for Data Science" (DACD) course, a second-year subject in the Data Science and Engineering Degree at the University of Las Palmas de Gran Canaria (ULPGC), School of Computer Engineering (EII).
 
-- **Módulo TripAdvisorSensor**: la funcionalidad de este módulo es obtener los datos de la API de Xotelo. Se crea un nuevo tópico en ActiveMQ al que se mandarán los eventos JSON creados.
-- **Módulo PredictionProvider**: módulo de la práctica anterior, donde se obtiene los eventos json de la api de OpenWeatherMap. Se crea un tópico al que se mandarán los eventos JSON.
-- **Módulo DataLakeBuilder**: consumer que obtendrá los eventos subidos al broker en ambos tópicos y creará un datalake con un directorio específico para cada tipo de evento
-- **Módulo Business-unit**: módulo que consume los datos de los tópicos y genera una interfaz que proporciona al usuario datos meteorológicos de la isla a la que quiere ir, además de recomendarle hoteles a los que puede alojarse.
+## The Project
+For my project, I have utilized Xotelo's API, which fetches hotel data from TripAdvisor. This API accepts a `HotelKey` along with check-in and check-out dates, returning data about available hotels during those dates. I have selected a number of hotels for each island, among which the API will check availability. The modules include:
+
+- **TripAdvisorSensor Module**: The functionality of this module is to obtain data from Xotelo's API. A new topic is created in ActiveMQ where JSON events generated will be sent.
+- **PredictionProvider Module**: A module from a previous practice, which retrieves JSON events from the OpenWeatherMap API. A topic is created to which JSON events will be sent.
+- **DataLakeBuilder Module**: A consumer that retrieves events posted to the broker in both topics and creates a datalake with a specific directory for each type of event.
+- **Business-unit Module**: A module that consumes data from the topics and generates an interface providing the user with weather data for the island they are interested in, in addition to recommending hotels for accommodation.
+
+## Resources
+**Environment**
+The project was developed in IntelliJ IDEA, utilizing Java 17 as the source and target compilation version (configured via maven.compiler.source and maven.compiler.target). It also integrates APIs from OpenWeatherMap and Xotelo.
+
+## Class Diagram
+
+
+### Additional Notes
+Each module is designed to function seamlessly, ensuring that data flows smoothly from APIs to the end-user interface. The system is capable of handling concurrent data streams and updates the user interface in real-time with weather predictions and hotel availability. Error handling is robust, ensuring that any issues with data retrieval or processing are logged and managed appropriately.
+
+### Future Enhancements
+Future updates may include expanding the range of APIs used, enhancing the predictive capabilities of the system, and improving user interaction with more dynamic and responsive design elements in the GUI.
