@@ -1,25 +1,15 @@
-<h1 align="center"> OpenWeatherMap and SkyScanner Sensor </h1>
+<h1 align="center"> OpenWeatherMap and TripAdvisor Sensor </h1>
 
 <p align="left">
 
-   <img src="https://img.shields.io/badge/STATUS-INCOMPLETE-orange">
-   <img src="https://img.shields.io/badge/Released-January%202024-yellow">
+   <img src="https://img.shields.io/badge/STATUS-COMPLETE-green">
+   <img src="https://img.shields.io/badge/Released-June%202024-yellow">
    </p>
 
 ## Información General
-Para mi proyecto, he decidido hacer la planificación de viajes inteligente obteniendo datos meterológicos de la API de OpenWeather y datos de vuelo de la API de SkyScanner. Daría a los usuarios la posibilidad de escoger su vuelo a la isla canaria que prefiera, y luego darles predicciones meterológicas de cómo estará el tiempo durante su estancia en las islas. 
+Para mi proyecto, he usado la api de Xotelo que obtiene datos de hoteles de TripAdvisor. Se le pasa a la API una HotelKey y la fecha de entrada y de salida a dicho hotel, y la API devuelve los hoteles que estará disponibles durante esas fechas. Lo que he hecho ha sido seleccionar un numero de hoteles para cada isla, entre los que la API podrá seleccionar su disponibilidad. Los módulos son:
 
-El proyecto está por acabar.
-
-Lo que queda por hacer, sería:
-
-- **Módulo FlightInsightSenso**r: queda seleccionar los datos que me interesan de los eventos Json que me da la API para crear eventos Json nuevos con los que pueda trabajar en el business-unit.
-- **Módulo Business-unit**: (cambiar el nombre). Una vez estén los eventos Json de vuelo creados y modificados según mis necesidades, quedaría combinar los datos de estos eventos y los eventos de predicciones meteoróligas para tener un datamart en condiciones, y así poder explotarlos para mi unidad de negocio.
-- **Interfaz**: una vez pueda explotar el modelo de negocio, haría una interfaz (todavía no se de qué tipo) en la que el usuario pueda reservar su vuelo y, luego, darle la predicción meteorológica de la isla en la que haya elegido pasar su estancia.
-
-Además, quedan corregir pequeños detalles de código como utilizar los argumentos del main, aplicar los principios de clean coding, aplicar los principios solid vistos en clase, etc, además de actualizar los releases.
-
-
-
-
-
+- **Módulo TripAdvisorSensor**: la funcionalidad de este módulo es obtener los datos de la API de Xotelo. Se crea un nuevo tópico en ActiveMQ al que se mandarán los eventos JSON creados.
+- **Módulo PredictionProvider**: módulo de la práctica anterior, donde se obtiene los eventos json de la api de OpenWeatherMap. Se crea un tópico al que se mandarán los eventos JSON.
+- **Módulo DataLakeBuilder**: consumer que obtendrá los eventos subidos al broker en ambos tópicos y creará un datalake con un directorio específico para cada tipo de evento
+- **Módulo Business-unit**: módulo que consume los datos de los tópicos y genera una interfaz que proporciona al usuario datos meteorológicos de la isla a la que quiere ir, además de recomendarle hoteles a los que puede alojarse.
